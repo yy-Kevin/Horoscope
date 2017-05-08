@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.shoplex.bible.horoscope.view.weight.ObservableScrollView
+            android:id="@+id/scroolview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/bg"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="100dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_lunckly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@mipmap/lucky" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@mipmap/question" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@mipmap/crystal" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_lunckly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/rl_lunckly"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginRight="20dp"
+                        android:text="Lucky Number"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+
+                <com.github.androidprogresslayout.ProgressLayout xmlns:progressLayout="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/pl_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/white"
+                    progressLayout:progressBackground="@color/violet">
+
+                    <include layout="@layout/include_today" />
+                </com.github.androidprogresslayout.ProgressLayout>
+
+                <include layout="@layout/include_match" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="13dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/tv_forecast1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="13dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginTop="13dp"
+                        android:text="Forecast"
+                        android:textColor="@color/violet"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_forecast2"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_below="@id/tv_forecast1"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/text_cicle"
+                        android:gravity="center"
+                        android:text="Tomorrow"
+                        android:textColor="@color/violet" />
+
+                    <TextView
+                        android:id="@+id/tv_forecast3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_forecast2"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
+                        android:text="A sense of panic hangs right at the edge of your awareness.You’-re curious about the source but don’t want to ..."
+                        android:textColor="@color/violet_content"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_forecast4"
+                        android:layout_width="40dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/tv_forecast3"
+                        android:layout_marginRight="14dp"
+                        android:background="@drawable/text_cicle"
+                        android:gravity="center"
+                        android:text="More" />
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@id/tv_forecast4"
+                        android:layout_marginBottom="13dp"
+                        android:layout_marginLeft="26dp"
+                        android:layout_marginRight="26dp"
+                        android:layout_marginTop="13dp"
+                        android:background="@color/violet_bg" />
+
+                    <TextView
+                        android:id="@+id/tv_weekly1"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:layout_below="@id/view"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="14dp"
+                        android:background="@drawable/text_cicle"
+                        android:gravity="center"
+                        android:text="Weekly"
+                        android:textColor="@color/violet" />
+
+                    <TextView
+                        android:id="@+id/tv_weekly2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_weekly1"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
+                        android:text="A sense of panic hangs right at the edge of your awareness.You’-re curious about the source but don’t want to ..."
+                        android:textColor="@color/violet_content"
+                        android:textSize="16dp" />
+
+
+                    <TextView
+                        android:id="@+id/tv_weekly3"
+                        android:layout_width="40dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/tv_weekly2"
+                        android:layout_marginRight="14dp"
+                        android:background="@drawable/text_cicle"
+                        android:gravity="center"
+                        android:text="More" />
+
+                    <RelativeLayout
+                        android:layout_below="@id/tv_weekly3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_monthly1"
+                            android:layout_width="80dp"
+                            android:layout_height="20dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="14dp"
+                            android:background="@drawable/text_cicle"
+                            android:gravity="center"
+                            android:text="Monthly1"
+                            android:textColor="@color/violet" />
+
+                        <TextView
+                            android:id="@+id/tv_monthly2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_monthly1"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginRight="14dp"
+                            android:text="A sense of panic hangs right at the edge of your awareness.You’-re curious about the source but don’t want to ..."
+                            android:textColor="@color/violet_content"
+                            android:textSize="16dp" />
+
+
+                        <TextView
+                            android:id="@+id/tv_monthly3"
+                            android:layout_width="40dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/tv_monthly2"
+                            android:layout_marginRight="14dp"
+                            android:background="@drawable/text_cicle"
+                            android:gravity="center"
+                            android:text="More" />
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="14dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@color/white">
+
+                    <RatingBar
+                        android:id="@+id/ratingbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="16dp"
+                        android:numStars="5"
+                        android:progressTint="#ffd71b"
+                        android:rating="0"
+                        android:stepSize="1" />
+
+
+                    
+                    <TextView
+                        android:id="@+id/tv_comment1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ratingbar"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="13dp"
+                        android:text="Do you really like us？" />
+
+                    <TextView
+                        android:id="@+id/tv_comment2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_comment1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="13dp"
+                        android:text="Please give five points, we will try to do better！" />
+                </RelativeLayout>
+            </LinearLayout>
+
+        </com.shoplex.bible.horoscope.view.weight.ObservableScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</layout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="24dp"
+        android:paddingBottom="30dp"
+        android:text="Today’s Horoscope"
+        android:textColor="@color/violet"
+        android:textSize="16dp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_today"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_today"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:id="@+id/iv_aires"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="22dp"
+            android:background="@mipmap/aries1"
+            android:paddingLeft="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="14dp"
+            android:layout_toRightOf="@id/iv_aires"
+            android:text="You don’t want to take anyone’s word for anything taday.You must verity the faces and see the evidence with your own eyes."
+            android:textColor="@color/violet" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_today"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:id="@+id/tv_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@mipmap/good"
+            android:drawablePadding="4dp"
+            android:text="20"
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/tv_bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/tv_good"
+            android:drawableLeft="@mipmap/bad"
+            android:drawablePadding="4dp"
+            android:text="20"
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/tv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:drawableLeft="@mipmap/share"
+            android:drawablePadding="4dp"
+            android:text="20"
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/tv_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@id/tv_share"
+            android:drawableLeft="@mipmap/comment"
+            android:drawablePadding="4dp"
+            android:text="20"
+            android:textColor="@color/gray" />
+
+    </RelativeLayout>
+</RelativeLayout>

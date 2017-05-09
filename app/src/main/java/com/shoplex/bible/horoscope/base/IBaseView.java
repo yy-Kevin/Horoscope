@@ -1,15 +1,29 @@
 package com.shoplex.bible.horoscope.base;
 
-import com.shoplex.bible.horoscope.bean.HorocopeBean;
-
 /**
  * Created by qsk on 2017/4/26.
  */
 
-public interface IBaseView {
+public interface IBaseView<T> {
 
-    void toMainActivity(HorocopeBean user);
+    void toMainActivity(T user);
 
     void showFailedError();
+
+    /**
+     * 需要刷新的继承此View
+     *
+     * @param
+     */
+    interface OnRefreshView<T> extends IBaseView<T> {
+
+        void hideProgress();
+
+        void showProgress();
+
+        void showFoot();
+
+        void hideFoot();
+    }
 
 }

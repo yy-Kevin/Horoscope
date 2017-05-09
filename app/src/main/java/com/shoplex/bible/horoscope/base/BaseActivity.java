@@ -36,6 +36,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     protected abstract P createPresenter();
 
+
     public Toolbar initToolbar(Toolbar toolbar,String title) {
         TextView textView = (TextView) toolbar.findViewById(R.id.tv_toolbar);
         setSupportActionBar(toolbar);
@@ -57,7 +58,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     public ProgressDialog showProgressDialog() {
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("加载中");
+        progressDialog.setMessage("Loading ...");
         progressDialog.show();
         return progressDialog;
     }

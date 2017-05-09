@@ -11,7 +11,6 @@ import android.view.WindowManager;
 
 import com.shoplex.bible.horoscope.R;
 import com.shoplex.bible.horoscope.base.BaseActivity;
-import com.shoplex.bible.horoscope.bean.HorocopeBean;
 import com.shoplex.bible.horoscope.databinding.ActivityZodoacBinding;
 import com.shoplex.bible.horoscope.utils.SharedPreferencesUtils;
 import com.shoplex.bible.horoscope.utils.ToastUtil;
@@ -120,8 +119,15 @@ public class ZodoacActivity extends BaseActivity<ZodoacPresenter> implements Vie
         dismissProgressDialog();
     }
 
+//    @Override
+//    public void toMainActivity(HorocopeBean user) {
+//        Intent intent = new Intent(this, MainActivity.class);
+//        startActivity(intent);
+//        finish();
+//    }
+
     @Override
-    public void toMainActivity(HorocopeBean user) {
+    public void toMainActivity(Object user) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();

@@ -9,18 +9,16 @@ import com.shoplex.bible.horoscope.bean.HorocopeBean;
 
 public class ZodoacPresenter extends BasePresenter<ZodoacContract.IZodoacView,ZodoacModule>{
 
-    private ZodoacModule zodoacModule;
 
     public ZodoacPresenter(ZodoacContract.IZodoacView zodoacView){
         attachView(zodoacView,new ZodoacModule());
-        this.zodoacModule = new ZodoacModule();
     }
 
     public void zodoacLoading() {
 
         baseView.showLoading();
 
-        zodoacModule.loading("", "", new ZodoacContract.OnLoadingListener() {
+        baseModule.loading("", "", new ZodoacContract.OnLoadingListener() {
             @Override
             public void loginSuccess(HorocopeBean user) {
                 baseView.toMainActivity(user);

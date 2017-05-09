@@ -40,12 +40,14 @@
                             android:background="@mipmap/lucky" />
 
                         <ImageView
+                            android:id="@+id/iv_luncky_know1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:background="@mipmap/question" />
 
                         <ImageView
+                            android:id="@+id/iv_luncky_know2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -66,7 +68,8 @@
 
                 </RelativeLayout>
 
-                <com.github.androidprogresslayout.ProgressLayout xmlns:progressLayout="http://schemas.android.com/apk/res-auto"
+                <com.github.androidprogresslayout.ProgressLayout
+                    xmlns:progressLayout="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/pl_progress"
                     android:layout_width="match_parent"
                     android:layout_height="180dp"

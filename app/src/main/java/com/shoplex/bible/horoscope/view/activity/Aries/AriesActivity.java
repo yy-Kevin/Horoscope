@@ -23,15 +23,15 @@ import java.util.List;
 public class AriesActivity extends AppCompatActivity{
 
     public ActivityAriesBinding binding;
-                              //定义viewPager
-    private FragmentPagerAdapter fAdapter;                               //定义adapter
 
-    private List<Fragment> list_fragment;                                //定义要装fragment的列表
-    private List<String> list_title;                                     //tab名称列表
+    private FragmentPagerAdapter fAdapter;  //定义adapter
 
-    private DataFragment hotRecommendFragment;              //热门推荐fragment
-    private DataFragment hotCollectionFragment;              //热门推荐fragment
-    private DataFragment hotMonthFragment;              //热门推荐fragment
+    private List<Fragment> list_fragment;  //定义要装fragment的列表
+    private List<String> list_title;   //tab名称列表
+
+    private DataFragment hotRecommendFragment;
+    private DataFragment hotCollectionFragment;
+    private DataFragment hotMonthFragment;
     private DataFragment hotToday;
     private DataFragment hotToday1;
     private DataFragment hotToday2;
@@ -89,7 +89,7 @@ public class AriesActivity extends AppCompatActivity{
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText(list_title.get(4)));
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText(list_title.get(5)));
 
-        fAdapter = new AriesActivity.Find_tab_Adapter(getSupportFragmentManager(),list_fragment,list_title);
+        fAdapter = new Find_tab_Adapter(getSupportFragmentManager(),list_fragment,list_title);
 
         //viewpager加载adapter
         binding.lvDemo.setAdapter(fAdapter);

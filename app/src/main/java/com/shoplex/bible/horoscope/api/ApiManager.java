@@ -28,6 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class ApiManager {
+
     private static final String TAG = "ApiManager";
     private static Retrofit mRetrofit;
     private static OkHttpClient mOkHttpClient;
@@ -61,9 +62,7 @@ public class ApiManager {
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .client(mOkHttpClient)
                     .build();
-
         }
-
         return mRetrofit;
     }
 

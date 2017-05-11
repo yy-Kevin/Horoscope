@@ -1,4 +1,5 @@
 package com.shoplex.bible.horoscope.api;
+
 import rx.Observable;
 import rx.subjects.PublishSubject;
 import rx.subjects.SerializedSubject;
@@ -14,8 +15,7 @@ public class RxBus {
     private final Subject bus;
 
 
-    public RxBus()
-    {
+    public RxBus() {
         bus = new SerializedSubject<>(PublishSubject.create());
     }
 
@@ -24,17 +24,13 @@ public class RxBus {
      *
      * @return
      */
-    public static RxBus getInstance()
-    {
+    public static RxBus getInstance() {
 
         RxBus rxBus2 = mInstance;
-        if (mInstance == null)
-        {
-            synchronized (RxBus.class)
-            {
+        if (mInstance == null) {
+            synchronized (RxBus.class) {
                 rxBus2 = mInstance;
-                if (mInstance == null)
-                {
+                if (mInstance == null) {
                     rxBus2 = new RxBus();
                     mInstance = rxBus2;
                 }
@@ -44,14 +40,12 @@ public class RxBus {
         return rxBus2;
     }
 
-
     /**
      * 发送消息
      *
      * @param object
      */
-    public void post(Object object)
-    {
+    public void post(Object object) {
 
         bus.onNext(object);
 
@@ -64,8 +58,7 @@ public class RxBus {
      * @param <T>
      * @return
      */
-    public <T> Observable<T> toObserverable(Class<T> eventType)
-    {
+    public <T> Observable<T> toObserverable(Class<T> eventType) {
         return bus.ofType(eventType);
     }
 }

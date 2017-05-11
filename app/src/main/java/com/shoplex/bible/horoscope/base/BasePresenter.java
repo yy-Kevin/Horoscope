@@ -1,7 +1,7 @@
 package com.shoplex.bible.horoscope.base;
 
 /**
- * Created by qsk on 2017/4/25.
+ * Created by yuyao on 2017/4/25.
  */
 
 public class BasePresenter<V,T extends BaseModule> implements Presenter<V,T>{

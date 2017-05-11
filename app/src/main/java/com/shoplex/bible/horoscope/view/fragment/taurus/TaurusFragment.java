@@ -41,6 +41,9 @@ public class TaurusFragment extends BaseFragment  {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_taurus, container, false);
         Log.i(TAG,"yuyao TaurusFragment onCreateView");
 //        initToolbar(R.id.tl_toolbar);
+        startShakeByViewAnim(binding.ivLunckyKnow1, 1.0f,1.5f,30.0f,1000);
+        startShakeByViewAnim(binding.ivLunckyKnow2, 1.0f,1.5f,30.0f,1000);
+        initInClude(binding.ilInclude);
         return binding.getRoot();
     }
 

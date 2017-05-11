@@ -81,7 +81,9 @@
                     <include layout="@layout/include_today" />
                 </com.github.androidprogresslayout.ProgressLayout>
 
-                <include layout="@layout/include_match" />
+                <include
+                    android:id="@+id/il_include"
+                    layout="@layout/include_match" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"

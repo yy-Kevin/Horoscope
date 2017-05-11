@@ -44,7 +44,7 @@ public class ProgressDialogHandler extends Handler {
             }
 
             if (!pd.isShowing()) {
-                pd = ProgressDialog.show(context, "消息", "正在添加患者信息...");
+                pd = ProgressDialog.show(context, "Message", "Loading ...");
             }
         }
     }

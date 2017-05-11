@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "E:\\wave\\Horoscopes\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\shadow_left.png",
+        "source": "E:\\wave\\Horoscopes\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\shadow_left.png"
+    },
+    {
+        "merged": "E:\\wave\\Horoscopes\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\shadow_right.png",
+        "source": "E:\\wave\\Horoscopes\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\shadow_right.png"
+    },
+    {
+        "merged": "E:\\wave\\Horoscopes\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\shadow_bottom.png",
+        "source": "E:\\wave\\Horoscopes\\library\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\shadow_bottom.png"
+    }
+]

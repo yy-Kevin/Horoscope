@@ -14,6 +14,7 @@ public class BaseModule {
 
     CompositeSubscription mCompositeSubscription;
 
+
     public void detachView() {
         onUnsubscribe();
     }
@@ -33,4 +34,5 @@ public class BaseModule {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber));
     }
+
 }

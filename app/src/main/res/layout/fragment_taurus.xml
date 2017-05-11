@@ -40,12 +40,14 @@
                             android:background="@mipmap/lucky" />
 
                         <ImageView
+                            android:id="@+id/iv_luncky_know1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:background="@mipmap/question" />
 
                         <ImageView
+                            android:id="@+id/iv_luncky_know2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -78,7 +80,9 @@
                     <include layout="@layout/include_today" />
                 </com.github.androidprogresslayout.ProgressLayout>
 
-                <include layout="@layout/include_match" />
+                <include
+                    android:id="@+id/il_include"
+                    layout="@layout/include_match" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"

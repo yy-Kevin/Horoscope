@@ -10,7 +10,7 @@ import rx.Subscriber;
  * Created by qsk on 2017/4/26.
  */
 
-public class AriesModule extends BaseModule implements AriesContract.IAriesModule {
+public class AriesModule extends BaseModule implements  AriesContract.IAriesModule {
 
 
     @Override

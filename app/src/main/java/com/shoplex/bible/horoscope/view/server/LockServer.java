@@ -45,4 +45,13 @@ public class LockServer extends Service {
             }
         }
     };
+
+    @Override
+    public void onDestroy() {
+        unregisterReceiver(mScreenOffReceiver);
+
+        if(mLockIntent!=null){
+            startService(mLockIntent);
+        }
+    }
 }

@@ -6,8 +6,6 @@ import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.Gravity;
@@ -16,9 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 
@@ -27,6 +22,7 @@ import com.shoplex.bible.horoscope.base.BaseFragment;
 import com.shoplex.bible.horoscope.databinding.FragmentAriesBinding;
 import com.shoplex.bible.horoscope.view.activity.Aries.AriesActivity;
 import com.shoplex.bible.horoscope.view.activity.MainActivity;
+import com.shoplex.bible.horoscope.view.server.LockServer;
 import com.shoplex.bible.horoscope.view.weight.ObservableScrollView;
 
 /**
@@ -36,15 +32,9 @@ import com.shoplex.bible.horoscope.view.weight.ObservableScrollView;
 public class AriesFragment extends BaseFragment<AriesPresenter> implements AriesContract.IAriesView, View.OnClickListener {
 
     private FragmentAriesBinding binding;
-    final String[] luncky = new String[]{"Lucky Number", "Lucky Direction", "Lucky Color"};
+    private final String[] luncky = new String[]{"Lucky Number", "Lucky Direction", "Lucky Color"};
     private PopupWindow window;
     private int number = 0;
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-
-        }
-    };
 
     public static AriesFragment getInstance() {
         AriesFragment fragment = new AriesFragment();
@@ -63,25 +53,24 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
         super.onCreateView(inflater, container, savedInstanceState);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_aries, container, false);
         binding.plProgress.showProgress();
-
-
+        Intent intent = new Intent(mActivity, LockServer.class);
+        mActivity.startService(intent);
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 number++;
-                binding.tvLunckly.setText(luncky[number % 3]);
+               binding.tvLunckly.setText(luncky[number % 3]);
                 binding.tvLunckly.postDelayed(this, 3000);
             }
         };
         binding.tvLunckly.postDelayed(runnable, 3000);
 
-
+        initInClude(binding.ilInclude);
         initSwipeLayout();
         initNet();
 
         return binding.getRoot();
     }
-
     public void initNet() {
         mPresenter.loading();
     }
@@ -128,59 +117,24 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
             }
         });
 
-                startShakeByViewAnim(binding.ivLunckyKnow1, 1.0f,1.5f,30.0f,1000);
-                startShakeByViewAnim(binding.ivLunckyKnow2, 1.0f,1.5f,30.0f,1000);
+        startShakeByViewAnim(binding.ivLunckyKnow1, 1.0f,1.5f,30.0f,1000);
+        startShakeByViewAnim(binding.ivLunckyKnow2, 1.0f,1.5f,30.0f,1000);
     }
 
 
-    private void startShakeByViewAnim(View view, float scaleSmall, float scaleLarge, float shakeDegrees, long duration) {
-        if (view == null) {
-            return;
-        }
-        //TODO 验证参数的有效性
 
-        //由小变大
-//        Animation scaleAnim = new ScaleAnimation(scaleSmall, scaleLarge, scaleSmall, scaleLarge);
-        //从左向右
-        Animation rotateAnim = new RotateAnimation(-shakeDegrees, shakeDegrees, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-
-//        scaleAnim.setDuration(duration);
-        rotateAnim.setDuration(duration);
-        rotateAnim.setRepeatMode(Animation.REVERSE);
-//        rotateAnim.setRepeatCount(10);
-        rotateAnim.setRepeatCount(Animation.INFINITE);
-//        scaleAnim.setRepeatCount(Animation.INFINITE);
-
-
-        AnimationSet smallAnimationSet = new AnimationSet(false);
-//        smallAnimationSet.addAnimation(scaleAnim);
-        smallAnimationSet.addAnimation(rotateAnim);
-        smallAnimationSet.setRepeatCount(Animation.INFINITE);
-
-
-        view.startAnimation(smallAnimationSet);
-    }
 
 
     @Override
     public void toMainActivity(Object user) {
         binding.plProgress.showContent();
         binding.swipeRefresh.setRefreshing(false);
-
-
     }
 
     @Override
     public void showFailedError() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                binding.swipeRefresh.setRefreshing(false);
-                binding.plProgress.showErrorText(mActivity.getResources().getString(R.string.error));
-
-
-            }
-        }, 2000);
+        binding.swipeRefresh.setRefreshing(false);
+        binding.plProgress.showErrorText(mActivity.getResources().getString(R.string.error));
     }
 
 
@@ -241,8 +195,8 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
 
     @Override
     public void onClick(View v) {
+        super.onClick(v);
         switch (v.getId()) {
-
             case R.id.iv_dismiss:
                 if (window != null)
                     window.dismiss();

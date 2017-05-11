@@ -42,15 +42,11 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="34dp">
+            android:layout_marginLeft="34dp"
+            android:background="@mipmap/heart">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/heart" />
-
-            <ImageView
+                android:id="@+id/iv_pair1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -68,15 +64,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="34dp">
+            android:layout_marginRight="34dp"
+            android:background="@mipmap/heart">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/heart" />
-
-            <ImageView
+                android:id="@+id/iv_pair2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -94,16 +86,12 @@
         android:orientation="horizontal">
 
         <RelativeLayout
+            android:id="@+id/rl_aries"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
-            android:layout_marginRight="20dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/basemap" />
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/basemap">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -114,15 +102,11 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_taurus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/basemap" />
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/basemap">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -132,15 +116,11 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_gemini"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/basemap" />
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/basemap">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -150,15 +130,12 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_cancer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp">
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/basemap">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/basemap" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -168,15 +145,11 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_lion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/basemap" />
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/basemap">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -186,14 +159,11 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_virgo"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@mipmap/basemap">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/basemap" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -209,21 +179,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ll_match1"
-        android:layout_marginTop="14dp"
         android:layout_marginBottom="13dp"
+        android:layout_marginTop="14dp"
         android:orientation="horizontal">
 
         <RelativeLayout
+            android:id="@+id/rl_libra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
-            android:layout_marginRight="20dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/basemap" />
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/basemap">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -233,15 +199,11 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_scorpio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/basemap" />
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/basemap">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -251,15 +213,11 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_sagittarius"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/basemap" />
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/basemap">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -269,15 +227,11 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_caprorn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/basemap" />
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/basemap">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -287,15 +241,11 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_aquarus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/basemap" />
+            android:layout_marginRight="20dp"
+            android:background="@mipmap/basemap">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -305,14 +255,10 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_pisces"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@mipmap/basemap" />
+            android:layout_height="wrap_content"
+            android:background="@mipmap/basemap">
 
             <ImageView
                 android:layout_width="wrap_content"

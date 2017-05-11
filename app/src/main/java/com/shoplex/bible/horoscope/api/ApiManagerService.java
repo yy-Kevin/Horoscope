@@ -33,7 +33,6 @@ public interface ApiManagerService {
     @GET("books/{id}")
     Observable<HorocopeBean> getHoroscope(@Path("id") int id);
 
-
     //GET请求，设置缓存
     @Headers("Cache-Control: public," )
     @GET("/bjws/app.user/login")

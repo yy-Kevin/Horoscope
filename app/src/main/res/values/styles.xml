@@ -7,16 +7,18 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="PairTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/violet</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
-
-    <!--<style name="Toolbar">-->
-        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-        <!--<item name="layout_width">match_parent</item>-->
-        <!--<item name="layout_height">wrap_content</item>-->
-        <!--<item name="titleTextColor">@color/white</item>-->
-        <!--<item name="layout_marginTop">50dp</item>-->
-    <!--</style>-->
 
     <!--  这个是加入的代码 -->
     <style name="mypopwindow_anim_style">

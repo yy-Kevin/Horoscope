@@ -3,7 +3,7 @@
     package="com.shoplex.bible.horoscope">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -14,9 +14,9 @@
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.activity.SplashActivity">
@@ -30,6 +30,11 @@
         <activity android:name=".view.activity.MainActivity" />
         <activity android:name=".zodoacMvp.ZodoacActivity" />
         <activity android:name=".view.activity.Aries.AriesActivity" />
+        <activity android:name=".view.activity.PairActivity"
+            android:theme="@style/PairTheme">
+
+
+        </activity>
         <activity
             android:name=".view.activity.LockActivity"
             android:excludeFromRecents="true"

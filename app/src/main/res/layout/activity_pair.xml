@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/bg_3"
-        android:orientation="vertical">
+        android:background="@mipmap/bg_3">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/tl_toolbar"
@@ -19,5 +18,62 @@
             app:titleTextColor="@color/white">
 
         </android.support.v7.widget.Toolbar>
-    </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tl_toolbar"
+            android:layout_marginTop="50dp"
+            android:gravity="center">
+
+            <ImageView
+
+                android:id="@+id/iv_white_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/white_bg" />
+
+            <ImageView
+                android:id="@+id/iv_and"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/and" />
+
+            <RelativeLayout
+                android:id="@+id/rl_heart2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/iv_white_bg"
+                android:background="@mipmap/heart">
+
+                <ImageView
+                    android:id="@+id/iv_heart2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_heart1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@id/iv_white_bg"
+                android:background="@mipmap/heart">
+
+                <ImageView
+                    android:id="@+id/iv_heart1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
 </layout>

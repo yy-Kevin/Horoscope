@@ -6,7 +6,6 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         tools:context="com.shoplex.bible.demo.MainActivity">
 
             <!-- AppBarLayout，作为CoordinatorLayout的子类 -->
@@ -48,6 +47,8 @@
                 android:id="@+id/lv_demo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@mipmap/bg_aries"
+
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             </android.support.v4.view.ViewPager>

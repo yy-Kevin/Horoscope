@@ -39,11 +39,12 @@ public class TaurusFragment extends BaseFragment  {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_taurus, container, false);
+        initInClude(binding.ilInclude);
+        initLucky(binding.ilIncludeLuncky);
+        initSwipeLayout(binding.swipeRefresh,binding.scroolview);
         Log.i(TAG,"yuyao TaurusFragment onCreateView");
 //        initToolbar(R.id.tl_toolbar);
-        startShakeByViewAnim(binding.ivLunckyKnow1, 1.0f,1.5f,30.0f,1000);
-        startShakeByViewAnim(binding.ivLunckyKnow2, 1.0f,1.5f,30.0f,1000);
-        initInClude(binding.ilInclude);
+
         return binding.getRoot();
     }
 

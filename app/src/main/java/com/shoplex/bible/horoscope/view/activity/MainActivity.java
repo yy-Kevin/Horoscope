@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             //手动给小圆点一个大小
             params.height = 16;
             params.width = 16;
-            if (i == 0) {
+            if (i == (int)SharedPreferencesUtils.get(this, "isZodoac", 0)) {
 //                imageView.setBackgroundResource(img1);
 //                imageView.setBackgroundColor(Color.WHITE);
                 imageView.setBackgroundResource(R.mipmap.white_cicle);

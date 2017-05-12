@@ -39,7 +39,9 @@ public class CaprcornFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_caprcorn, container, false);
-
+        initInClude(binding.ilInclude);
+        initLucky(binding.ilIncludeLuncky);
+        initSwipeLayout(binding.swipeRefresh,binding.scroolview);
         Log.i(TAG,"yuyao CaprcornFragment onCreateView");
         return binding.getRoot();
     }

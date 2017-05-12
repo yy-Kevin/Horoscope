@@ -30,7 +30,7 @@ public class AriesActivity extends AppCompatActivity{
     private List<String> list_title;   //tab名称列表
 
     private DataFragment hotRecommendFragment;
-    private DataFragment hotCollectionFragment;
+    private TodayAriesFragment hotCollectionFragment;
     private DataFragment hotMonthFragment;
     private DataFragment hotToday;
     private DataFragment hotToday1;
@@ -56,7 +56,7 @@ public class AriesActivity extends AppCompatActivity{
 
         //初始化各fragment
         hotRecommendFragment = new DataFragment();
-        hotCollectionFragment = new DataFragment();
+        hotCollectionFragment = new TodayAriesFragment();
         hotMonthFragment = new DataFragment();
         hotToday = new DataFragment();
         hotToday1 = new DataFragment();

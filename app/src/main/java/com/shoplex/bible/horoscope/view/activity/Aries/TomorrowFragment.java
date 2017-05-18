@@ -15,7 +15,8 @@ import com.shoplex.bible.horoscope.databinding.ActivityAriesTodayBinding;
  * Created by qsk on 2017/5/5.
  */
 
-public class YesterDayAriesFragment extends Fragment{
+public class TomorrowFragment extends Fragment{
+
 
     private ActivityAriesTodayBinding binding;
 
@@ -27,5 +28,4 @@ public class YesterDayAriesFragment extends Fragment{
         binding = DataBindingUtil.inflate(inflater, R.layout.activity_aries_today, container, false);
         return binding.getRoot();
     }
-
 }

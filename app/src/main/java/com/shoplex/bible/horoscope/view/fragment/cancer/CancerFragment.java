@@ -41,7 +41,8 @@ public class CancerFragment extends BaseFragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_cancer, container, false);
         initInClude(binding.ilInclude);
         initLucky(binding.ilIncludeLuncky);
-        initSwipeLayout(binding.swipeRefresh,binding.scroolview);
+        initSwipeLayout(this,binding.swipeRefresh,binding.scroolview);
+
         Log.i(TAG,"yuyao CancerFragment onCreateView");
 
         return binding.getRoot();

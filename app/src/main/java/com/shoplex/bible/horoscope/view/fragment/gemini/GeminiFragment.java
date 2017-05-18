@@ -41,7 +41,8 @@ public class GeminiFragment extends BaseFragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gemini, container, false);
         initInClude(binding.ilInclude);
         initLucky(binding.ilIncludeLuncky);
-        initSwipeLayout(binding.swipeRefresh,binding.scroolview);
+        initSwipeLayout(this,binding.swipeRefresh,binding.scroolview);
+
         Log.i(TAG,"yuyao G=eminiFragment onCreateView");
         return binding.getRoot();
     }

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.shoplex.bible.horoscope.R;
 
 /**
- * Created by qsk on 2017/4/25.
+ * Created by yuyao on 2017/4/25.
  */
 
 public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity {

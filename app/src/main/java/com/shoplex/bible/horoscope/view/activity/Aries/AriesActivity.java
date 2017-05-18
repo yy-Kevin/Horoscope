@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.Window;
 
 import com.shoplex.bible.horoscope.R;
@@ -23,18 +24,17 @@ import java.util.List;
 public class AriesActivity extends AppCompatActivity{
 
     public ActivityAriesBinding binding;
-
     private FragmentPagerAdapter fAdapter;  //定义adapter
-
     private List<Fragment> list_fragment;  //定义要装fragment的列表
     private List<String> list_title;   //tab名称列表
 
-    private DataFragment hotRecommendFragment;
+    private YesterDayAriesFragment hotRecommendFragment;
     private TodayAriesFragment hotCollectionFragment;
-    private DataFragment hotMonthFragment;
+    private TomorrowFragment hotMonthFragment;
     private DataFragment hotToday;
     private DataFragment hotToday1;
     private DataFragment hotToday2;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,9 +55,9 @@ public class AriesActivity extends AppCompatActivity{
     private void initControls() {
 
         //初始化各fragment
-        hotRecommendFragment = new DataFragment();
+        hotRecommendFragment = new YesterDayAriesFragment();
         hotCollectionFragment = new TodayAriesFragment();
-        hotMonthFragment = new DataFragment();
+        hotMonthFragment = new TomorrowFragment();
         hotToday = new DataFragment();
         hotToday1 = new DataFragment();
         hotToday2 = new DataFragment();
@@ -127,5 +127,13 @@ public class AriesActivity extends AppCompatActivity{
 
             return list_Title.get(position % list_Title.size());
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home){
+            finish();
+        }
+        return true;
     }
 }

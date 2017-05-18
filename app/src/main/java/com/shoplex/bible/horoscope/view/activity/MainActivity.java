@@ -15,13 +15,13 @@ import com.shoplex.bible.horoscope.base.BaseActivity;
 import com.shoplex.bible.horoscope.base.BasePresenter;
 import com.shoplex.bible.horoscope.databinding.ActivityMainBinding;
 import com.shoplex.bible.horoscope.utils.SharedPreferencesUtils;
+import com.tencent.bugly.Bugly;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity {
 
-    private static final String TAG = "MainActivity";
     public ActivityMainBinding binding;
     private List<ImageView> dotViewLists = new ArrayList<>();
     private ImageView imageView;
@@ -32,10 +32,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        Bugly.init(getApplicationContext(), "000000", false);
 
+        initSmallDots();
+        initFragment();
+    }
+
+    private void initSmallDots(){
         for (int i = 0; i < 12; i++) {
             imageView = new ImageView(this);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT));
 
             //为小圆点左右添加间距
             params.leftMargin = 10;
@@ -65,14 +73,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             binding.llMainLinear.addView(imageView, params);
             dotViewLists.add(imageView);
         }
-
-
-        initFragment();
     }
 
-
     private void initFragment() {
-
         MainAdapter mainAdapter = new MainAdapter(getSupportFragmentManager());
         binding.vpMainViewpager.setAdapter(mainAdapter);
         binding.vpMainViewpager.setOffscreenPageLimit(0);
@@ -91,10 +94,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 for (int i = 0; i < 12; i++) {
                     //选中的页面改变小圆点为选中状态，反之为未选中
                     if ((position % 12) == i) {
-//                        ((View) dotViewLists.get(i)).setBackgroundResource(img1);
                         dotViewLists.get(i).setBackgroundResource(R.mipmap.white_cicle);
                     } else {
-//                        ((View) dotViewLists.get(i)).setBackgroundResource(img2);
                         dotViewLists.get(i).setBackgroundResource(R.mipmap.cicle);
                     }
                 }
@@ -155,10 +156,5 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 initToolbar(binding.tlToolbar, getResources().getString(R.string.aries));
                 break;
         }
-    }
-
-    @Override
-    public void onClick(View v) {
-
     }
 }

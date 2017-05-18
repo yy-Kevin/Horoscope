@@ -41,7 +41,8 @@ public class LibraFragment extends BaseFragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_libra, container, false);
         initInClude(binding.ilInclude);
         initLucky(binding.ilIncludeLuncky);
-        initSwipeLayout(binding.swipeRefresh,binding.scroolview);
+        initSwipeLayout(this,binding.swipeRefresh,binding.scroolview);
+
         Log.i(TAG,"yuyao LibraFragment onCreateView");
         return binding.getRoot();
     }

@@ -41,7 +41,8 @@ public class CaprcornFragment extends BaseFragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_caprcorn, container, false);
         initInClude(binding.ilInclude);
         initLucky(binding.ilIncludeLuncky);
-        initSwipeLayout(binding.swipeRefresh,binding.scroolview);
+        initSwipeLayout(this,binding.swipeRefresh,binding.scroolview);
+
         Log.i(TAG,"yuyao CaprcornFragment onCreateView");
         return binding.getRoot();
     }
@@ -53,16 +54,6 @@ public class CaprcornFragment extends BaseFragment {
 
     @Override
     public void showFailedError() {
-
-    }
-
-    @Override
-    public void showDialog() {
-
-    }
-
-    @Override
-    public void hideDialog() {
 
     }
 }

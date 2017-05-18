@@ -10,20 +10,4 @@ public interface IFragmentView<T> {
     void showFailedError();
     void showDialog();
     void hideDialog();
-
-    /**
-     * 需要刷新的继承此View
-     *
-     * @param
-     */
-    interface OnRefreshView<T> extends IBaseView<T> {
-
-        void hideProgress();
-
-        void showProgress();
-
-        void showFoot();
-
-        void hideFoot();
-    }
 }

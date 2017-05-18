@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -37,7 +38,8 @@ public class PairActivity extends AppCompatActivity implements View.OnClickListe
 
         setSupportActionBar(binding.tlToolbar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        binding.tlToolbar.setNavigationIcon(R.mipmap.back);
 
         int drawable1 = (int) SharedPreferencesUtils.get(this,"isFirstSelect",0);
         int drawable2 = (int) SharedPreferencesUtils.get(this,"isSecendSelect",0);
@@ -117,5 +119,13 @@ public class PairActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         showPopwindowad(R.layout.pop_pair, Gravity.BOTTOM);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home){
+            finish();
+        }
+        return true;
     }
 }

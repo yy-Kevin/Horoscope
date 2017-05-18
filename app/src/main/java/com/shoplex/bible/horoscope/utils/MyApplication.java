@@ -1,4 +1,4 @@
-package com.shoplex.bible.horoscope.application;
+package com.shoplex.bible.horoscope.utils;
 
 import android.app.Application;
 

@@ -72,6 +72,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     private int number = 0;
     private TextView tv_lunckly;
     private PopupWindow window;
+    private ProgressDialog progressDialog;
 
 
     @Nullable
@@ -110,22 +111,44 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
 
     @Override
     public void showDialog() {
-
+        showProgressDialog();
     }
 
     @Override
     public void hideDialog() {
-
+        dismissProgressDialog();
     }
 
-    public void initSwipeLayout(final SwipeRefreshLayout refresh, final ObservableScrollView scroolview) {
+    public ProgressDialog showProgressDialog() {
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Loading ...");
+        progressDialog.show();
+        return progressDialog;
+    }
+
+    public ProgressDialog showProgressDialog(CharSequence message) {
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage(message);
+        progressDialog.show();
+        return progressDialog;
+    }
+
+    public void dismissProgressDialog() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            // progressDialog.hide();会导致android.view.WindowLeaked
+            progressDialog.dismiss();
+        }
+    }
+    public void initSwipeLayout(final BaseFragment fragment, final SwipeRefreshLayout refresh, final ObservableScrollView scroolview) {
         //初始化下拉刷新
         refresh.setColorSchemeResources(android.R.color.holo_blue_bright, android.R.color.holo_green_light,
                 android.R.color.holo_orange_light, android.R.color.holo_red_light);
         refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-//                initNet();
+                fragment.initNet();
+                refresh.setRefreshing(false);
+
             }
         });
 
@@ -150,7 +173,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
                         if (y <= height) {
                             float scale = (float) y / height;
                             float alpha = (255 * scale);
-
                             //只是layout背景透明
                             activity.binding.tlToolbar.setBackgroundColor(Color.argb((int) alpha, 0x15, 0x17, 0x44));
                         }
@@ -162,6 +184,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
 
     }
 
+    public void initNet() {}
 
     public void initLucky(View view) {
         tv_lunckly = (TextView) view.findViewById(R.id.tv_lunckly);
@@ -240,6 +263,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
                 if (window != null)
                     window.dismiss();
                 break;
+
             case R.id.rl_lunckly:
                 if (tv_lunckly.getText().equals(luncky[0])) {
                     showPopwindowad(R.layout.pop_luncky_number, Gravity.CENTER);
@@ -249,6 +273,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
                     showPopwindowad(R.layout.pop_luncky_color, Gravity.CENTER);
                 }
                 break;
+
             case R.id.rl_aries:
                 isSelect(rl_aries, R.string.aries, R.mipmap.aries_map);
                 break;

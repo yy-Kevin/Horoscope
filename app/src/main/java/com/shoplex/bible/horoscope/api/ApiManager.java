@@ -7,8 +7,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
-import com.shoplex.bible.horoscope.application.MyApplication;
-import com.shoplex.bible.horoscope.global.GlobalUrl;
+import com.shoplex.bible.horoscope.utils.MyApplication;
+import com.shoplex.bible.horoscope.global.GlobalConfig;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,7 +37,7 @@ public class ApiManager {
     private static Cache cache = new Cache(cacheDirectory, 10 * 1024 * 1024);
 
 
-    public static ApiManagerService apiManager = getRetrofit(GlobalUrl.NEW_RUL).create(ApiManagerService.class);
+    public static ApiManagerService apiManager = getRetrofit(GlobalConfig.NEW_RUL).create(ApiManagerService.class);
 
     public static ApiManagerService  getIntances(String url){
         ApiManagerService apiManager = getRetrofit(url).create(ApiManagerService.class);
@@ -92,7 +92,7 @@ public class ApiManager {
                     .removeHeader("Pragma")
                     .removeHeader("Cache-Control")
                     //cache for 30 days
-                    .header("Cache-Control", "max-age=" + 0)
+                    .header("Cache-Control", "max-age=" + 10)
                     .build();
             return response1;
 

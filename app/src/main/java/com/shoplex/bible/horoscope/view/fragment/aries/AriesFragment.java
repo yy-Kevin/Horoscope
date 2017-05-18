@@ -37,16 +37,17 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
         super.onCreateView(inflater, container, savedInstanceState);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_aries, container, false);
 
-        binding.plProgress.showProgress();
+//        binding.plProgress.showProgress();
+        binding.plProgress.setOnClickListener(this);
         initInClude(binding.ilInclude);
         initLucky(binding.ilIncludeLuncky);
-        initSwipeLayout(binding.swipeRefresh,binding.scroolview);
-        initNet();
+        initSwipeLayout(this,binding.swipeRefresh,binding.scroolview);
         binding.plProgress.showContent();
 
         return binding.getRoot();
     }
 
+    @Override
     public void initNet() {
         mPresenter.loading();
     }

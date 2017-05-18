@@ -41,7 +41,8 @@ public class PiscesFragment extends BaseFragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pisces, container, false);
         initInClude(binding.ilInclude);
         initLucky(binding.ilIncludeLuncky);
-        initSwipeLayout(binding.swipeRefresh,binding.scroolview);
+        initSwipeLayout(this,binding.swipeRefresh,binding.scroolview);
+
 
         Log.i(TAG,"yuyao PiscesFragment onCreateView");
         return binding.getRoot();

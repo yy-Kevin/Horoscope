@@ -40,6 +40,8 @@ public class VirgoFragment extends BaseFragment {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_virgo, container, false);
         Log.i(TAG,"yuyao VirgoFragment onCreateView");
+        initSwipeLayout(this,binding.swipeRefresh,binding.scroolview);
+
         return binding.getRoot();
     }
 

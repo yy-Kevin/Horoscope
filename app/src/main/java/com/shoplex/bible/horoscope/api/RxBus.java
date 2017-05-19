@@ -1,7 +1,11 @@
 package com.shoplex.bible.horoscope.api;
 
 import rx.Observable;
-import rx.subjects.PublishSubject;
+import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
+import rx.subjects.BehaviorSubject;
 import rx.subjects.SerializedSubject;
 import rx.subjects.Subject;
 
@@ -16,7 +20,8 @@ public class RxBus {
 
 
     public RxBus() {
-        bus = new SerializedSubject<>(PublishSubject.create());
+//        bus = new SerializedSubject<>(PublishSubject.create());
+        bus = new SerializedSubject<>(BehaviorSubject.create());
     }
 
     /**
@@ -60,5 +65,21 @@ public class RxBus {
      */
     public <T> Observable<T> toObserverable(Class<T> eventType) {
         return bus.ofType(eventType);
+    }
+
+    /**
+     * 一个默认的订阅方法
+     *
+     * @param type
+     * @param next
+     * @param error
+     * @param <T>
+     * @return
+     */
+    public <T> Subscription doSubscribe(Class<T> type, Action1<T> next, Action1<Throwable> error) {
+        return toObserverable(type)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(next, error);
     }
 }

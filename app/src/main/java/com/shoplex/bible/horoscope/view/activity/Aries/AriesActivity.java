@@ -12,17 +12,22 @@ import android.view.MenuItem;
 import android.view.Window;
 
 import com.shoplex.bible.horoscope.R;
+import com.shoplex.bible.horoscope.api.RxBus;
+import com.shoplex.bible.horoscope.api.RxBusEvent;
+import com.shoplex.bible.horoscope.bean.DataBean;
 import com.shoplex.bible.horoscope.databinding.ActivityAriesBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import rx.Subscription;
+
 /**
  * Created by qsk on 2017/5/5.
  */
 
-public class AriesActivity extends AppCompatActivity{
-
+public class AriesActivity extends AppCompatActivity {
+    private final String TAG = "";
     public ActivityAriesBinding binding;
     private FragmentPagerAdapter fAdapter;  //定义adapter
     private List<Fragment> list_fragment;  //定义要装fragment的列表
@@ -34,6 +39,7 @@ public class AriesActivity extends AppCompatActivity{
     private DataFragment hotToday;
     private DataFragment hotToday1;
     private DataFragment hotToday2;
+    private Subscription rxSbscription;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,6 +47,13 @@ public class AriesActivity extends AppCompatActivity{
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_aries);
 
+//        rxSbscription = RxBus.getInstance().toObserverable(DataBean.class)
+//                .subscribe(new Consumer<RxBusEvent.HoroBackground>(){
+//
+//                });
+//        DataBean bean = new DataBean();
+//        bean.setBackground(R.mipmap.bg_aquarius);
+//        RxBus.getInstance().post(bean);
         setSupportActionBar(binding.toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -48,8 +61,18 @@ public class AriesActivity extends AppCompatActivity{
         initControls();
 
     }
+
+    @Override
+    protected void onDestroy() {
+        if (!rxSbscription.isUnsubscribed()) {
+            rxSbscription.unsubscribe();
+        }
+        super.onDestroy();
+    }
+
     /**
      * 初始化各控件
+     *
      * @param
      */
     private void initControls() {
@@ -89,7 +112,7 @@ public class AriesActivity extends AppCompatActivity{
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText(list_title.get(4)));
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText(list_title.get(5)));
 
-        fAdapter = new Find_tab_Adapter(getSupportFragmentManager(),list_fragment,list_title);
+        fAdapter = new Find_tab_Adapter(getSupportFragmentManager(), list_fragment, list_title);
 
         //viewpager加载adapter
         binding.lvDemo.setAdapter(fAdapter);
@@ -131,7 +154,7 @@ public class AriesActivity extends AppCompatActivity{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             finish();
         }
         return true;

@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.shoplex.bible.horoscope.R;
+import com.shoplex.bible.horoscope.api.RxBus;
 import com.shoplex.bible.horoscope.base.BaseFragment;
+import com.shoplex.bible.horoscope.bean.DataBean;
 import com.shoplex.bible.horoscope.databinding.FragmentAriesBinding;
 import com.shoplex.bible.horoscope.view.activity.Aries.AriesActivity;
 
@@ -70,7 +73,18 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
         switch (v.getId()) {
 
             case R.id.pl_progress:
+                DataBean bean = new DataBean();
+                bean.setBackground(R.mipmap.bg_aquarius);
+
+
                 Intent intent = new Intent(mActivity, AriesActivity.class);
+                intent.putExtra("aries",R.mipmap.bg_aries);
+
+
+                Log.i(TAG,"yuyao ariesFragment" + bean.getBackground());
+
+                RxBus.getInstance().post(bean);
+
                 mActivity.startActivity(intent);
                 break;
         }

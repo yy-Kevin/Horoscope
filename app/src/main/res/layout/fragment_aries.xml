@@ -34,7 +34,9 @@
                     android:background="@color/white"
                     progressLayout:progressBackground="@color/violet">
 
-                    <include layout="@layout/include_today" />
+                    <include
+                        android:id="@+id/il_include_data"
+                        layout="@layout/include_today" />
                 </com.github.androidprogresslayout.ProgressLayout>
 
                 <include

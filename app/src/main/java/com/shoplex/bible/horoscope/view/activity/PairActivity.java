@@ -4,6 +4,7 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ public class PairActivity extends AppCompatActivity implements View.OnClickListe
 
     private ActivityPairBinding binding;
     private PopupWindow window;
+    private Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,7 +48,17 @@ public class PairActivity extends AppCompatActivity implements View.OnClickListe
         binding.ivHeart1.setBackgroundResource(drawable1);
         binding.ivHeart2.setBackgroundResource(drawable2);
         binding.ivHeart2.setOnClickListener(this);
+
+        mHandler.postDelayed(mRunnable, 500);
+
     }
+    private Runnable mRunnable = new Runnable() {
+        public void run() {
+            // 弹出PopupWindow的具体代码
+            showPopwindowad(R.layout.pop_pair, Gravity.BOTTOM);
+
+        }
+    };
 
     @Override
     protected void onResume() {
@@ -76,9 +88,9 @@ public class PairActivity extends AppCompatActivity implements View.OnClickListe
         window = new PopupWindow(view);
         window.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         window.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        backgroundAlpha(0.8f);
+        backgroundAlpha(0.5f);
         // 设置popWindow弹出窗体可点击，这句话必须添加，并且是true
-        // window.setFocusable(true);
+//         window.setFocusable(true);
 
         //点击外面，PopWindowad不消失
         window.setBackgroundDrawable(new BitmapDrawable());
@@ -117,8 +129,12 @@ public class PairActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        showPopwindowad(R.layout.pop_pair, Gravity.BOTTOM);
-
+        switch (v.getId()){
+            case R.id.iv_dismiss:
+                window.dismiss();
+                window = null;
+                break;
+        }
     }
 
     @Override
@@ -127,5 +143,15 @@ public class PairActivity extends AppCompatActivity implements View.OnClickListe
             finish();
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (window != null){
+            window.dismiss();
+            window = null;
+            return;
+        }
+        super.onBackPressed();
     }
 }

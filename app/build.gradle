@@ -49,21 +49,21 @@ dependencies {
     //tablayout
     compile 'com.android.support:design:25.3.0'
 
-//    compile 'io.reactivex:rxjava:1.1.0'
-//    compile 'io.reactivex:rxandroid:1.1.0'
-//    compile 'com.squareup.retrofit2:retrofit:2.0.2'
-//    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
-//    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
-//    compile 'com.squareup.okhttp3:logging-interceptor:3.3.0'
+    compile 'io.reactivex:rxjava:1.1.0'
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.0'
 
-    compile "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
-    compile "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
+//    compile "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
+//    compile "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
 
-    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
-    compile "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitVersion"
-    compile "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttpVersion"
-    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
+//    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+//    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+//    compile "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitVersion"
+//    compile "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttpVersion"
+//    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
     //页面加载
     compile 'com.github.androidprogresslayout:library:2.0.2@aar'
     compile 'com.android.support:appcompat-v7:25.3.0'

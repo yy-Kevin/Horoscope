@@ -73,6 +73,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     private TextView tv_lunckly;
     private PopupWindow window;
     private ProgressDialog progressDialog;
+    private Runnable runnable;
 
 
     @Nullable
@@ -187,11 +188,12 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     public void initNet() {}
 
     public void initLucky(View view) {
+
         tv_lunckly = (TextView) view.findViewById(R.id.tv_lunckly);
         RelativeLayout rl_lunckly = (RelativeLayout) view.findViewById(R.id.rl_lunckly);
         final ImageView iv1 = (ImageView) view.findViewById(R.id.iv_luncky_know1);
         final ImageView iv2 = (ImageView) view.findViewById(R.id.iv_luncky_know2);
-        Runnable runnable = new Runnable() {
+        runnable = new Runnable() {
             @Override
             public void run() {
                 number++;
@@ -200,12 +202,25 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
             }
         };
         tv_lunckly.postDelayed(runnable, 3000);
-        tv_lunckly.setOnClickListener(this);
+
         rl_lunckly.setOnClickListener(this);
+
         startShakeByViewAnim(iv1, 1.0f, 1.5f, 30.0f, 1000);
         startShakeByViewAnim(iv2, 1.0f, 1.5f, 30.0f, 1000);
     }
 
+    @Override
+    public void onPause() {
+        if (tv_lunckly !=null && runnable != null){
+            tv_lunckly.removeCallbacks(runnable);
+        }
+        super.onPause();
+    }
+
+    /**
+     * 星座配对初始化 以及设置点击事件
+     * @param view
+     */
     public void initInClude(View view) {
         rl_aries = (RelativeLayout) view.findViewById(R.id.rl_aries);
         rl_taurus = (RelativeLayout) view.findViewById(R.id.rl_taurus);

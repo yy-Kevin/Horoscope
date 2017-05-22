@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,20 +38,25 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_aries, container, false);
+        return binding.getRoot();
+    }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        setUserVisibleHint(false);
+
+        mPresenter.loading();
 //        binding.plProgress.showProgress();
         binding.plProgress.setOnClickListener(this);
         initInClude(binding.ilInclude);
         initLucky(binding.ilIncludeLuncky);
         initSwipeLayout(this,binding.swipeRefresh,binding.scroolview);
         binding.plProgress.showContent();
-
-        return binding.getRoot();
+        super.onActivityCreated(savedInstanceState);
     }
 
     @Override
     public void initNet() {
-        mPresenter.loading();
     }
 
     @Override
@@ -71,20 +75,11 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()) {
-
             case R.id.pl_progress:
                 DataBean bean = new DataBean();
-                bean.setBackground(R.mipmap.bg_aquarius);
-
-
+                bean.setBackground(R.mipmap.bg_aries);
                 Intent intent = new Intent(mActivity, AriesActivity.class);
-                intent.putExtra("aries",R.mipmap.bg_aries);
-
-
-                Log.i(TAG,"yuyao ariesFragment" + bean.getBackground());
-
                 RxBus.getInstance().post(bean);
-
                 mActivity.startActivity(intent);
                 break;
         }

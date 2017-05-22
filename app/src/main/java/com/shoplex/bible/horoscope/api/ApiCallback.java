@@ -1,4 +1,5 @@
 package com.shoplex.bible.horoscope.api;
+
 import retrofit2.adapter.rxjava.HttpException;
 import rx.Subscriber;
 

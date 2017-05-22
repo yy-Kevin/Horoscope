@@ -1,4 +1,4 @@
-package com.shoplex.bible.horoscope.view.activity.Aries;
+package com.shoplex.bible.horoscope.view.activity.Taurus;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -15,6 +15,10 @@ import com.shoplex.bible.horoscope.R;
 import com.shoplex.bible.horoscope.api.RxBus;
 import com.shoplex.bible.horoscope.bean.DataBean;
 import com.shoplex.bible.horoscope.databinding.ActivityAriesBinding;
+import com.shoplex.bible.horoscope.view.activity.Aries.DataFragment;
+import com.shoplex.bible.horoscope.view.activity.Aries.TodayAriesFragment;
+import com.shoplex.bible.horoscope.view.activity.Aries.TomorrowFragment;
+import com.shoplex.bible.horoscope.view.activity.Aries.YesterDayAriesFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +30,7 @@ import rx.functions.Action1;
  * Created by qsk on 2017/5/5.
  */
 
-public class AriesActivity extends AppCompatActivity {
+public class TaurusActivity extends AppCompatActivity {
     private final String TAG = "";
     public ActivityAriesBinding binding;
     private FragmentPagerAdapter fAdapter;  //定义adapter

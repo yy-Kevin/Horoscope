@@ -50,23 +50,23 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     public Activity mActivity;
     public T mPresenter;
     public static final int MATCHING_HOROSCOPES = 0;
-    public RelativeLayout rl_aries;
-    public RelativeLayout rl_taurus;
-    public RelativeLayout rl_gemini;
-    public RelativeLayout rl_cancer;
-    public RelativeLayout rl_lion;
-    public RelativeLayout rl_virgo;
-    public RelativeLayout rl_libra;
-    public RelativeLayout rl_scorpio;
-    public RelativeLayout rl_sag;
-    public RelativeLayout rl_caprorn;
-    public RelativeLayout rl_aquarus;
-    public RelativeLayout rl_pisces;
+    public ImageView rl_aries;
+    public ImageView rl_taurus;
+    public ImageView rl_gemini;
+    public ImageView rl_cancer;
+    public ImageView rl_lion;
+    public ImageView rl_virgo;
+    public ImageView rl_libra;
+    public ImageView rl_scorpio;
+    public ImageView rl_sag;
+    public ImageView rl_caprorn;
+    public ImageView rl_aquarus;
+    public ImageView rl_pisces;
     public String isHorcorpes = null;
 
     private boolean isDouble = false;
     private ImageView iv_aires;
-    private Set<RelativeLayout> relativeLayouts = new HashSet<>();
+    private Set<ImageView> relativeLayouts = new HashSet<>();
     private ImageView iv_pair2;
     private ImageView iv_pair1;
     private View mRootView;
@@ -225,18 +225,18 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
      * @param view
      */
     public void initInClude(View view) {
-        rl_aries = (RelativeLayout) view.findViewById(R.id.rl_aries);
-        rl_taurus = (RelativeLayout) view.findViewById(R.id.rl_taurus);
-        rl_gemini = (RelativeLayout) view.findViewById(R.id.rl_gemini);
-        rl_cancer = (RelativeLayout) view.findViewById(R.id.rl_cancer);
-        rl_lion = (RelativeLayout) view.findViewById(R.id.rl_lion);
-        rl_virgo = (RelativeLayout) view.findViewById(R.id.rl_virgo);
-        rl_libra = (RelativeLayout) view.findViewById(R.id.rl_libra);
-        rl_scorpio = (RelativeLayout) view.findViewById(R.id.rl_scorpio);
-        rl_sag = (RelativeLayout) view.findViewById(R.id.rl_sagittarius);
-        rl_caprorn = (RelativeLayout) view.findViewById(R.id.rl_caprorn);
-        rl_aquarus = (RelativeLayout) view.findViewById(R.id.rl_aquarus);
-        rl_pisces = (RelativeLayout) view.findViewById(R.id.rl_pisces);
+        rl_aries = (ImageView) view.findViewById(R.id.rl_aries);
+        rl_taurus = (ImageView) view.findViewById(R.id.rl_taurus);
+        rl_gemini = (ImageView) view.findViewById(R.id.rl_gemini);
+        rl_cancer = (ImageView) view.findViewById(R.id.rl_cancer);
+        rl_lion = (ImageView) view.findViewById(R.id.rl_lion);
+        rl_virgo = (ImageView) view.findViewById(R.id.rl_virgo);
+        rl_libra = (ImageView) view.findViewById(R.id.rl_libra);
+        rl_scorpio = (ImageView) view.findViewById(R.id.rl_scorpio);
+        rl_sag = (ImageView) view.findViewById(R.id.rl_sagittarius);
+        rl_caprorn = (ImageView) view.findViewById(R.id.rl_caprorn);
+        rl_aquarus = (ImageView) view.findViewById(R.id.rl_aquarus);
+        rl_pisces = (ImageView) view.findViewById(R.id.rl_pisces);
         iv_aires = (ImageView) view.findViewById(R.id.iv_aires);
         iv_pair2 = (ImageView) view.findViewById(R.id.iv_pair2);
         iv_pair1 = (ImageView) view.findViewById(R.id.iv_pair1);
@@ -331,7 +331,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
         }
     }
 
-    private void isSelect(RelativeLayout layout, int resources, int drawable) {
+    private void isSelect(ImageView layout, int resources, int drawable) {
         relativeLayouts.add(layout);
         if (isDouble && isHorcorpes != mActivity.getString(resources)) {
             iv_pair2.setBackgroundResource(drawable);
@@ -361,7 +361,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case MATCHING_HOROSCOPES:
-                for (RelativeLayout rl : relativeLayouts) {
+                for (ImageView rl : relativeLayouts) {
                     rl.setBackgroundResource(R.mipmap.basemap);
                 }
                 relativeLayouts.clear();

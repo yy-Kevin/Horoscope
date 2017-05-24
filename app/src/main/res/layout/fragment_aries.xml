@@ -119,31 +119,39 @@
                         android:text="Weekly"
                         android:textColor="@color/violet" />
 
-                    <TextView
-                        android:id="@+id/tv_weekly2"
+                    <RelativeLayout
+                        android:id="@+id/rl_weekly2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_weekly1"
                         android:layout_marginLeft="14dp"
-                        android:layout_marginRight="14dp"
-                        android:text="A sense of panic hangs right at the edge of your awareness.You’-re curious about the source but don’t want to ..."
-                        android:textColor="@color/violet_content"
-                        android:textSize="16dp" />
+                        android:layout_marginRight="14dp">
+
+                        <TextView
+                            android:lines="3"
+                            android:id="@+id/tv_weekly2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="A sense of panic hangs right at the edge of your awareness.You’-re curious about the source but don’t want to ... the edge of your awareness.You’-re curious about the source but don’t want to ... the edge of your awareness.You’-re curious about the source but don’t want to ... the edge of your awareness.You’-re curious about the source but don’t want to ... the edge of your awareness.You’-re curious about the source but don’t want to ... the edge of your awareness.You’-re curious about the source but don’t want to ..."
+                            android:textColor="@color/violet_content"
+                            android:textSize="16dp" />
 
 
-                    <TextView
-                        android:id="@+id/tv_weekly3"
-                        android:layout_width="40dp"
-                        android:layout_height="20dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_below="@id/tv_weekly2"
-                        android:layout_marginRight="14dp"
-                        android:background="@drawable/text_cicle"
-                        android:gravity="center"
-                        android:text="More" />
+                        <TextView
+                            android:id="@+id/tv_weekly3"
+                            android:layout_width="40dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/tv_weekly2"
+                            android:layout_marginRight="14dp"
+                            android:background="@drawable/text_cicle"
+                            android:gravity="center"
+                            android:text="More" />
+                    </RelativeLayout>
+
 
                     <RelativeLayout
-                        android:layout_below="@id/tv_weekly3"
+                        android:layout_below="@id/rl_weekly2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"

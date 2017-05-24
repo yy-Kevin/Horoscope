@@ -27,6 +27,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.shoplex.bible.horoscope.R;
+import com.shoplex.bible.horoscope.progress.SuccinctProgress;
 import com.shoplex.bible.horoscope.utils.SharedPreferencesUtils;
 import com.shoplex.bible.horoscope.view.activity.MainActivity;
 import com.shoplex.bible.horoscope.view.activity.PairActivity;
@@ -112,12 +113,14 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
 
     @Override
     public void showDialog() {
-        showProgressDialog();
+//        showProgressDialog();
+        SuccinctProgress.showSuccinctProgress(getActivity(),"hahaha",false,false);
     }
 
     @Override
     public void hideDialog() {
-        dismissProgressDialog();
+//        dismissProgressDialog();
+        SuccinctProgress.dismiss();
     }
 
     public ProgressDialog showProgressDialog() {

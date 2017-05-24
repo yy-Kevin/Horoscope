@@ -7,14 +7,15 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
-import com.shoplex.bible.horoscope.utils.MyApplication;
 import com.shoplex.bible.horoscope.global.GlobalConfig;
+import com.shoplex.bible.horoscope.utils.MyApplication;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
+import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -34,7 +35,7 @@ public class ApiManager {
     private static OkHttpClient mOkHttpClient;
     //设置缓存目录
     private static File cacheDirectory = new File(MyApplication.getInstance().getApplicationContext().getCacheDir().getAbsolutePath(), "MyCache");
-    private static Cache cache = new Cache(cacheDirectory, 10 * 1024 * 1024);
+        private static Cache cache = new Cache(cacheDirectory, 10 * 1024 * 1024);
 
 
     public static ApiManagerService apiManager = getRetrofit(GlobalConfig.NEW_RUL).create(ApiManagerService.class);
@@ -71,7 +72,7 @@ public class ApiManager {
         if (null == mOkHttpClient) {
             mOkHttpClient = new OkHttpClient.Builder()
 //                    .cookieJar(new CookiesManager())
-//                    .addInterceptor(new CacheInterceptor())
+                    .addInterceptor(new CacheInterceptor())
                     .addNetworkInterceptor(new CacheInterceptor())
                     .connectTimeout(10, TimeUnit.SECONDS)
                     .writeTimeout(30, TimeUnit.SECONDS)
@@ -86,45 +87,99 @@ public class ApiManager {
         @Override
         public Response intercept(Chain chain) throws IOException {
 
-            Request request = chain.request();
-            Response response = chain.proceed(request);
-            Response response1 = response.newBuilder()
-                    .removeHeader("Pragma")
-                    .removeHeader("Cache-Control")
-                    //cache for 30 days
-                    .header("Cache-Control", "max-age=" + 10)
-                    .build();
-            return response1;
-
 //            Request request = chain.request();
-//            if(!isNetworkAvailable(MyApplication.getInstance())){
-//                request = request.newBuilder()
-//                        .cacheControl(CacheControl.FORCE_CACHE)
-//                        .build();
-//            } else {
-//                request = request.newBuilder()
-//                        .cacheControl(CacheControl.FORCE_NETWORK)
-//                        .build();
-//            }
-//            Response originalResponse = chain.proceed(request);
-//            if(isNetworkAvailable(MyApplication.getInstance())){
-//
-//                return originalResponse.newBuilder()
-//                        .header("Cache-Control", "public, max-age=" + 0)
+//            Response response = chain.proceed(request);
+//            Response response1 = response.newBuilder()
+//                    .removeHeader("Pragma")
+//                    .removeHeader("Cache-Control")
+//                    //cache for 30 days
+//                    .header("Cache-Control", "max-age=" + 10)
+//                    .build();
+//            return response1;
+
+            Request request = chain.request();
+
+            if (isNetworkAvailable(MyApplication.getInstance())) {
+                Response response = chain.proceed(request);
+                int maxAge = 6; // 在线缓存在1分钟内可读取
+                String cacheControl = request.cacheControl().toString();
+                Log.e("yjbo-cache", "在线缓存在1分钟内可读取 11" + cacheControl);
+                return response.newBuilder()
+                        .removeHeader("Pragma")
+                        .removeHeader("Cache-Control")
+                        .header("Cache-Control", "public, max-age=" + maxAge)
+                        .build();
+            } else {
+                String cacheControl = request.cacheControl().toString();
+                Log.e("yjbo-cache", "离线时缓存时间设置 1" + cacheControl);
+                Log.e("yjbo-cache", "离线时缓存时间设置");
+                request = request.newBuilder()
+                        .cacheControl(FORCE_CACHE1)//此处设置了7秒---修改了系统方法
+                        .build();
+
+                Response response = chain.proceed(request);
+                //下面注释的部分设置也没有效果，因为在上面已经设置了
+                return response.newBuilder()
 //                        .removeHeader("Pragma")
-//                        .build();
-//            }else{
-//
-//                int maxTime = 4*24*60*60;
-//                return originalResponse.newBuilder()
-//                        .header("Cache-Control", "public, only-if-cached, max-stale="+6)
-//                        .removeHeader("Pragma")
-//                        .build();
-//            }
+//                        .removeHeader("Cache-Control")
+//                        .header("Cache-Control", "public, only-if-cached, max-stale=50")
+                        .build();
+            }
 
         }
     }
 
+
+
+
+    /***
+     * 拦截器，保存缓存的方法
+     * 2016年7月29日11:22:47
+     */
+    Interceptor interceptor = new Interceptor() {
+
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+            Request request = chain.request();
+
+            if (isNetworkAvailable(MyApplication.getInstance())) {
+                Response response = chain.proceed(request);
+                int maxAge = 6; // 在线缓存在1分钟内可读取
+                String cacheControl = request.cacheControl().toString();
+                Log.e("yjbo-cache", "在线缓存在1分钟内可读取" + cacheControl);
+                return response.newBuilder()
+                        .removeHeader("Pragma")
+                        .removeHeader("Cache-Control")
+                        .header("Cache-Control", "public, max-age=" + maxAge)
+                        .build();
+            } else {
+                Log.e("yjbo-cache", "离线时缓存时间设置");
+                request = request.newBuilder()
+                        .cacheControl(FORCE_CACHE1)//此处设置了7秒---修改了系统方法
+                        .build();
+
+                Response response = chain.proceed(request);
+                //下面注释的部分设置也没有效果，因为在上面已经设置了
+                return response.newBuilder()
+//                        .removeHeader("Pragma")
+//                        .removeHeader("Cache-Control")
+//                        .header("Cache-Control", "public, only-if-cached, max-stale=50")
+                        .build();
+            }
+        }
+    };
+    //这是设置在多长时间范围内获取缓存里面
+    public static final CacheControl FORCE_CACHE1 = new CacheControl.Builder()
+            .onlyIfCached()
+            .maxStale(7, TimeUnit.SECONDS)//这里是7s，CacheControl.FORCE_CACHE--是int型最大值
+            .build();
+
+    /***
+     * 检查网络
+     *
+     * @param context
+     * @return
+     */
     public static boolean isNetworkAvailable(Context context) {
         if (context.checkCallingOrSelfPermission(Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
             return false;

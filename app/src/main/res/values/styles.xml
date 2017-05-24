@@ -8,6 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppBaseTheme"  parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
     <style name="PairTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -20,12 +27,24 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
 
-    <!--  这个是加入的代码 -->
+    <!--  popwindow的加载动画  -->
     <style name="mypopwindow_anim_style">
         <item name="android:windowEnterAnimation">@anim/popshow_anim</item>
-        <!-- 指定显示的动画xml -->
 
         <!--<item name="android:windowExitAnimation">@anim/pophidden_anim</item>-->
-        <!-- 指定消失的动画xml -->
+    </style>
+
+
+    <style name="succinct_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+    <style name="succinctProgressDialog" parent="@style/succinct_dialog">
+        <item name="android:windowBackground">@drawable/shape_succinct_dialog</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 </resources>

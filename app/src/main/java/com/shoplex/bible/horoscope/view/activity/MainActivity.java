@@ -32,7 +32,7 @@ public class MainActivity extends BaseActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        Bugly.init(getApplicationContext(), "000000", false);
+        Bugly.init(getApplicationContext(), "386b03031f", true);
 
         initSmallDots();
         initFragment();

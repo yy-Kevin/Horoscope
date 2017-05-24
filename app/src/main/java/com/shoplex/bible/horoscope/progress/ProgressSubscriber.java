@@ -47,6 +47,8 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
     @Override
     public void onStart() {
 //        showProgressDialog();
+        SuccinctProgress.showSuccinctProgress(context,"hahaha",false,false);
+
     }
 
     /**
@@ -54,7 +56,8 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
      */
     @Override
     public void onCompleted() {
-        dismissProgressDialog();
+//        dismissProgressDialog();
+        SuccinctProgress.dismiss();
     }
 
     /**
@@ -73,8 +76,8 @@ public class ProgressSubscriber<T> extends Subscriber<T> implements ProgressCanc
 //            Toast.makeText(context, "error:" + e.getMessage(), Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
-        dismissProgressDialog();
-
+//        dismissProgressDialog();
+        SuccinctProgress.dismiss();
     }
 
     /**

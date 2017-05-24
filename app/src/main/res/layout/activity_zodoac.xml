@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@mipmap/bg"
         android:orientation="vertical">
-
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/tl_zodoac"
@@ -20,214 +20,209 @@
         </android.support.v7.widget.Toolbar>
 
         <LinearLayout
-            android:id="@+id/tr_line1"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@id/tl_zodoac"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="30dp"
-            android:gravity="center_horizontal">
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_aries"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/tr_line1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/aries"
-                android:gravity="center"
-                android:text="Aries\n
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_aries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/aries"
+                    android:gravity="center"
+                    android:text="Aries\n
 03/21-04/19"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
+                    android:textColor="@color/white" />
 
-            <TextView
-                android:id="@+id/tv_taurus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/taurus"
-                android:gravity="center"
-                android:text="Taurus\n
+                <TextView
+                    android:id="@+id/tv_taurus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_aries"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/taurus"
+                    android:gravity="center"
+                    android:text="Taurus\n
 04/20-05/20"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
+                    android:textColor="@color/white" />
 
 
-            <TextView
-                android:id="@+id/tv_gemini"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/gemini"
-                android:gravity="center"
-                android:text="Gemini\n
+                <TextView
+                    android:id="@+id/tv_gemini"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/tv_taurus"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/gemini"
+                    android:gravity="center"
+                    android:text="Gemini\n
 05/21-06/21"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
+                    android:textColor="@color/white" />
 
 
-        </LinearLayout>
+            </LinearLayout>
 
 
-        <LinearLayout
-            android:id="@+id/tr_line2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tr_line1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/tv_cancer"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/tr_line2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/cancer"
-                android:gravity="center"
-                android:text="Cancer\n
+                android:layout_below="@id/tr_line1"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_cancer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/cancer"
+                    android:gravity="center"
+                    android:text="Cancer\n
 06/22-07/22"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
+                    android:textColor="@color/white" />
 
-            <TextView
-                android:id="@+id/tv_lion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/lion"
-                android:gravity="center"
-                android:text="Lion\n
+                <TextView
+                    android:id="@+id/tv_lion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_cancer"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/lion"
+                    android:gravity="center"
+                    android:text="Lion\n
 07/23-08/22"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
+                    android:textColor="@color/white" />
 
 
-            <TextView
-                android:id="@+id/tv_virgo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/virgo"
-                android:gravity="center"
-                android:text="Virgo\n
+                <TextView
+                    android:id="@+id/tv_virgo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_lion"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/virgo"
+                    android:gravity="center"
+                    android:text="Virgo\n
 08/23-09/22"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
-        </LinearLayout>
+                    android:textColor="@color/white" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/tr_line3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tr_line2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/tv_libra"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/tr_line3"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/libra"
-                android:gravity="center"
-                android:text="Libra\n
+                android:layout_below="@id/tr_line2"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_libra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/libra"
+                    android:gravity="center"
+                    android:text="Libra\n
 09/23-10/22"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
+                    android:textColor="@color/white" />
 
-            <TextView
-                android:id="@+id/tv_scorpio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/scorpio"
-                android:gravity="center"
-                android:text="Scorpio\n
+                <TextView
+                    android:id="@+id/tv_scorpio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_libra"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/scorpio"
+                    android:gravity="center"
+                    android:text="Scorpio\n
 10/23-11/21"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
+                    android:textColor="@color/white" />
 
 
-            <TextView
-                android:id="@+id/tv_sagittarius"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/sagittarius"
-                android:gravity="center"
-                android:text="Sagittarius\n
+                <TextView
+                    android:id="@+id/tv_sagittarius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_scorpio"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/sagittarius"
+                    android:gravity="center"
+                    android:text="Sagittarius\n
 11/22-12/21"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
+                    android:textColor="@color/white" />
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/tr_line4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tr_line3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/tv_caprcorn"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/tr_line4"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/caprcorn"
-                android:gravity="center"
-                android:text="Caprcorn\n
+                android:layout_below="@id/tr_line3"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_caprcorn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/caprcorn"
+                    android:gravity="center"
+                    android:text="Caprcorn\n
 12/22-01/19"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
+                    android:textColor="@color/white" />
 
-            <TextView
-                android:id="@+id/tv_aquarius"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/aquarius"
-                android:gravity="center"
-                android:text="Aquarius\n
+                <TextView
+                    android:id="@+id/tv_aquarius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_caprcorn"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/aquarius"
+                    android:gravity="center"
+                    android:text="Aquarius\n
 01/21-02/18"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
+                    android:textColor="@color/white" />
 
 
-            <TextView
-                android:id="@+id/tv_pisces"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/pisces"
-                android:gravity="center"
-                android:text="Pisces\n
+                <TextView
+                    android:id="@+id/tv_pisces"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_aquarius"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:drawableTop="@mipmap/pisces"
+                    android:gravity="center"
+                    android:text="Pisces\n
 02/19-03/20"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
+                    android:textColor="@color/white" />
 
 
+            </LinearLayout>
         </LinearLayout>
-
-    </RelativeLayout>
+    </LinearLayout>
 </layout>

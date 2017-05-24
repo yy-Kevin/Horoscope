@@ -43,6 +43,11 @@
             android:launchMode="singleInstance"
             android:taskAffinity="com.example.suoping.lockscreen"></activity>
 
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:theme="@android:style/Theme.Translucent" />
+
         <service android:name=".view.server.LockServer" />
 
         <provider

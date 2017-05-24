@@ -1,6 +1,7 @@
 package com.shoplex.bible.horoscope.utils;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 /**
@@ -8,6 +9,9 @@ import android.widget.Toast;
  */
 
 public class ToastUtil {
+
+    private static final String TAG = "TintManager";
+    private static final boolean DEBUG = false;
     private static String oldMsg;
     protected static Toast toast = null;
     private static long oneTime = 0;
@@ -36,5 +40,11 @@ public class ToastUtil {
 
     public static void showToast(Context context, int resId) {
         showToast(context, context.getString(resId));
+    }
+
+    private static void printLog(String msg) {
+        if (DEBUG) {
+            Log.i(TAG, msg);
+        }
     }
 }

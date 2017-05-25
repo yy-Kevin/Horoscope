@@ -24,20 +24,20 @@
                     android:id="@+id/il_include_luncky"
                     layout="@layout/include_lucky" />
 
-                <com.github.androidprogresslayout.ProgressLayout
-                    xmlns:progressLayout="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/pl_progress"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:background="@color/white"
-                    progressLayout:progressBackground="@color/violet">
+                <!--<com.github.androidprogresslayout.ProgressLayout-->
+                <!--xmlns:progressLayout="http://schemas.android.com/apk/res-auto"-->
+                <!--android:id="@+id/pl_progress"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="200dp"-->
+                <!--android:layout_marginLeft="16dp"-->
+                <!--android:layout_marginRight="16dp"-->
+                <!--android:background="@color/white"-->
+                <!--progressLayout:progressBackground="@color/violet">-->
 
-                    <include
-                        android:id="@+id/il_include_data"
-                        layout="@layout/include_today" />
-                </com.github.androidprogresslayout.ProgressLayout>
+                <include
+                    android:id="@+id/il_include_data"
+                    layout="@layout/include_today" />
+                <!--</com.github.androidprogresslayout.ProgressLayout>-->
 
                 <include
                     android:id="@+id/il_include"
@@ -94,6 +94,7 @@
                         android:layout_marginRight="14dp"
                         android:background="@drawable/text_cicle"
                         android:gravity="center"
+                        android:layout_marginTop="4dp"
                         android:text="More" />
 
                     <View
@@ -102,36 +103,34 @@
                         android:layout_height="1dp"
                         android:layout_below="@id/tv_forecast4"
                         android:layout_marginBottom="13dp"
-                        android:layout_marginLeft="26dp"
-                        android:layout_marginRight="26dp"
                         android:layout_marginTop="13dp"
                         android:background="@color/violet_bg" />
 
-                    <TextView
-                        android:id="@+id/tv_weekly1"
-                        android:layout_width="80dp"
-                        android:layout_height="20dp"
-                        android:layout_below="@id/view"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginLeft="14dp"
-                        android:background="@drawable/text_cicle"
-                        android:gravity="center"
-                        android:text="Weekly"
-                        android:textColor="@color/violet" />
 
                     <RelativeLayout
                         android:id="@+id/rl_weekly2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/tv_weekly1"
+                        android:layout_below="@id/view"
                         android:layout_marginLeft="14dp"
                         android:layout_marginRight="14dp">
 
                         <TextView
-                            android:lines="3"
+                            android:layout_marginBottom="8dp"
+                            android:id="@+id/tv_weekly1"
+                            android:layout_width="80dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/text_cicle"
+                            android:gravity="center"
+                            android:text="Wekly"
+                            android:textColor="@color/violet" />
+
+                        <TextView
+                            android:layout_below="@id/tv_weekly1"
                             android:id="@+id/tv_weekly2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:lines="3"
                             android:text="A sense of panic hangs right at the edge of your awareness.You’-re curious about the source but don’t want to ... the edge of your awareness.You’-re curious about the source but don’t want to ... the edge of your awareness.You’-re curious about the source but don’t want to ... the edge of your awareness.You’-re curious about the source but don’t want to ... the edge of your awareness.You’-re curious about the source but don’t want to ... the edge of your awareness.You’-re curious about the source but don’t want to ..."
                             android:textColor="@color/violet_content"
                             android:textSize="16dp" />
@@ -145,16 +144,28 @@
                             android:layout_below="@id/tv_weekly2"
                             android:layout_marginRight="14dp"
                             android:background="@drawable/text_cicle"
+                            android:layout_marginTop="4dp"
                             android:gravity="center"
                             android:text="More" />
+
+
                     </RelativeLayout>
+
+                    <View
+                        android:id="@+id/view1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@id/rl_weekly2"
+                        android:layout_marginBottom="13dp"
+                        android:layout_marginTop="13dp"
+                        android:background="@color/violet_bg" />
 
 
                     <RelativeLayout
-                        android:layout_below="@id/rl_weekly2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
+                        android:layout_below="@id/view1"
                         android:layout_marginBottom="10dp">
 
                         <TextView
@@ -189,6 +200,7 @@
                             android:layout_marginRight="14dp"
                             android:background="@drawable/text_cicle"
                             android:gravity="center"
+                            android:layout_marginTop="4dp"
                             android:text="More" />
 
                     </RelativeLayout>

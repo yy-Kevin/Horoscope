@@ -12,6 +12,7 @@ import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.view.animation.Transformation;
+import android.widget.RelativeLayout;
 
 import com.shoplex.bible.horoscope.R;
 import com.shoplex.bible.horoscope.api.RxBus;
@@ -27,6 +28,7 @@ import com.shoplex.bible.horoscope.view.activity.Aries.AriesActivity;
 public class AriesFragment extends BaseFragment<AriesPresenter> implements AriesContract.IAriesView, View.OnClickListener {
 
     private FragmentAriesBinding binding;
+    private RelativeLayout viewById;
 
     public static AriesFragment getInstance() {
         AriesFragment fragment = new AriesFragment();
@@ -50,13 +52,17 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         setUserVisibleHint(false);
 
-        binding.plProgress.setOnClickListener(this);
+        if (viewById != null){
+            Log.i(TAG,"error eooror ro or 2");
+        }
+        Log.i(TAG,"error eooror ro or ");
+//        viewById.setOnClickListener(mActivity);
         initInClude(binding.ilInclude);
-        initLucky(binding.ilIncludeLuncky);
+//        initLucky(binding.ilIncludeLuncky);
         initSwipeLayout(this,binding.swipeRefresh,binding.scroolview);
         setAnimailOnIntroduction();
 
-        binding.plProgress.showContent();
+//        binding.plProgress.showContent();
         super.onActivityCreated(savedInstanceState);
     }
 
@@ -68,22 +74,31 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
     }
 
     @Override
+    public void onResume() {
+        initLucky(binding.ilIncludeLuncky);
+        super.onResume();
+    }
+
+    @Override
     public void toMainActivity(Object user) {
-        binding.plProgress.showContent();
+//        binding.plProgress.showContent();
         binding.swipeRefresh.setRefreshing(false);
     }
 
     @Override
     public void showFailedError() {
         binding.swipeRefresh.setRefreshing(false);
-        binding.plProgress.showErrorText(mActivity.getResources().getString(R.string.error));
+//        binding.plProgress.showErrorText(mActivity.getResources().getString(R.string.error));
     }
 
     @Override
     public void onClick(View v) {
         super.onClick(v);
+        Log.i(TAG,"yuyao aries + = " + v.getId());
         switch (v.getId()) {
-            case R.id.pl_progress:
+            case R.id.rl_lunckly_data:
+                Log.i(TAG,"yuyao aries 111");
+
                 DataBean bean = new DataBean();
                 bean.setBackground(R.mipmap.bg_aries);
                 Intent intent = new Intent(mActivity, AriesActivity.class);
@@ -102,16 +117,12 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
             @Override
             public void onGlobalLayout() {
                 // TODO Auto-generated method stub
-                Log.e(TAG, "行数"+binding.tvWeekly2.getLineCount());
                 binding.tvWeekly3.setVisibility(binding.tvWeekly2.getLineCount() > maxDescripLine ? View.VISIBLE : View.GONE);
                 if(binding.tvWeekly3.getLineCount()>0){
                     binding.tvWeekly3.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 }
             }
         });
-
-        Log.e(TAG, (binding.tvWeekly3.getVisibility()==View.VISIBLE   ) + "   boolean");
-        Log.e(TAG, (binding.tvWeekly2.getLineCount() > maxDescripLine   ) + "   boolean");
 
         if (binding.tvWeekly3.getVisibility() == View.VISIBLE)
         binding.rlWeekly2.setOnClickListener(new View.OnClickListener() {

@@ -49,7 +49,7 @@ public class PairActivity extends AppCompatActivity implements View.OnClickListe
         binding.ivHeart2.setBackgroundResource(drawable2);
         binding.ivHeart2.setOnClickListener(this);
 
-        mHandler.postDelayed(mRunnable, 500);
+        mHandler.postDelayed(mRunnable, 350);
 
     }
     private Runnable mRunnable = new Runnable() {
@@ -103,7 +103,7 @@ public class PairActivity extends AppCompatActivity implements View.OnClickListe
         // 设置popWindow的显示和消失动画
         window.setAnimationStyle(R.style.mypopwindow_anim_style);
         // 在底部显示
-        window.showAtLocation(binding.ivHeart2, gravity, 0, 100);
+        window.showAtLocation(binding.ivHeart2, gravity, 0, 200);
 
         //popWindow消失监听方法
         window.setOnDismissListener(new PopupWindow.OnDismissListener() {

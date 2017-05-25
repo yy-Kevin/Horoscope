@@ -2,11 +2,12 @@ package com.shoplex.bible.horoscope.view.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -15,6 +16,7 @@ import com.shoplex.bible.horoscope.base.BaseActivity;
 import com.shoplex.bible.horoscope.base.BasePresenter;
 import com.shoplex.bible.horoscope.databinding.ActivityMainBinding;
 import com.shoplex.bible.horoscope.utils.SharedPreferencesUtils;
+import com.shoplex.bible.horoscope.utils.ToastUtil;
 import com.tencent.bugly.Bugly;
 
 import java.util.ArrayList;
@@ -25,12 +27,20 @@ public class MainActivity extends BaseActivity {
     public ActivityMainBinding binding;
     private List<ImageView> dotViewLists = new ArrayList<>();
     private ImageView imageView;
+    private static boolean isExit = false;
+    private Handler mHandler = new Handler(){
+
+        @Override
+        public void handleMessage(Message msg) {
+            isExit = false;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         Bugly.init(getApplicationContext(), "386b03031f", true);
 
@@ -38,6 +48,25 @@ public class MainActivity extends BaseActivity {
         initFragment();
     }
 
+    @Override
+    public void onBackPressed() {
+        isExit();
+        super.onBackPressed();
+    }
+
+    public void isExit(){
+        if (!isExit) {
+            isExit = true;
+            ToastUtil.showToast(this,"再按一次退出");
+            mHandler.sendEmptyMessageAtTime(0,2000);
+
+        } else {
+            finish();
+            System.exit(0);
+        }
+
+
+    }
     private void initSmallDots(){
         for (int i = 0; i < 12; i++) {
             imageView = new ImageView(this);

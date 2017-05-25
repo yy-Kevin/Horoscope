@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/mainbar</item>
+        <item name="colorPrimaryDark">@color/mainbar</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
@@ -46,5 +46,10 @@
     <style name="succinctProgressDialog" parent="@style/succinct_dialog">
         <item name="android:windowBackground">@drawable/shape_succinct_dialog</item>
         <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+    <style name="ImageTranslucentTheme" parent="AppTheme">
+        <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
     </style>
 </resources>

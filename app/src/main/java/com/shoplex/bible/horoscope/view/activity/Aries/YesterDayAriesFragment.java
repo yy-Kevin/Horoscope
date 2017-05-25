@@ -1,12 +1,9 @@
 package com.shoplex.bible.horoscope.view.activity.Aries;
 
 import android.databinding.DataBindingUtil;
-import android.graphics.Point;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +25,8 @@ public class YesterDayAriesFragment extends Fragment{
         super.onCreateView(inflater, container, savedInstanceState);
 
         binding = DataBindingUtil.inflate(inflater, R.layout.activity_aries_today, container, false);
+
+
         return binding.getRoot();
     }
 

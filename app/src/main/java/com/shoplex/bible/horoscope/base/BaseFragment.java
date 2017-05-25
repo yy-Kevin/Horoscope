@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,7 +15,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -29,7 +27,6 @@ import android.widget.TextView;
 import com.shoplex.bible.horoscope.R;
 import com.shoplex.bible.horoscope.progress.SuccinctProgress;
 import com.shoplex.bible.horoscope.utils.SharedPreferencesUtils;
-import com.shoplex.bible.horoscope.view.activity.MainActivity;
 import com.shoplex.bible.horoscope.view.activity.PairActivity;
 import com.shoplex.bible.horoscope.view.server.LockServer;
 import com.shoplex.bible.horoscope.view.weight.ObservableScrollView;
@@ -72,7 +69,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     private View mRootView;
     private int number = 0;
     private TextView tv_lunckly;
-    private PopupWindow window;
+    public PopupWindow window;
     private ProgressDialog progressDialog;
     private Runnable runnable;
 
@@ -151,39 +148,39 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
             @Override
             public void onRefresh() {
                 fragment.initNet();
-                refresh.setRefreshing(false);
+//                refresh.setRefreshing(false);
 
             }
         });
 
         //设置星座内容的点击事件
-        refresh.setOnClickListener(this);
+//        refresh.setOnClickListener(this);
 
-        final MainActivity activity = (MainActivity) getActivity();
-
-//        tv_lunckly
-        //获取顶部图片高度后，设置滚动监听
-        ViewTreeObserver vto = activity.binding.tlToolbar.getViewTreeObserver();
-        vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                activity.binding.tlToolbar.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                final int height = activity.binding.tlToolbar.getHeight();
-
-
-                scroolview.setScrollViewListener(new ObservableScrollView.ScrollViewListener() {
-                    @Override
-                    public void onScrollChanged(ObservableScrollView scrollView, int x, int y, int oldx, int oldy) {
-                        if (y <= height) {
-                            float scale = (float) y / height;
-                            float alpha = (255 * scale);
-                            //只是layout背景透明
-                            activity.binding.tlToolbar.setBackgroundColor(Color.argb((int) alpha, 0x15, 0x17, 0x44));
-                        }
-                    }
-                });
-            }
-        });
+//        final MainActivity activity = (MainActivity) getActivity();
+//
+////        tv_lunckly
+//        //获取顶部图片高度后，设置滚动监听
+//        ViewTreeObserver vto = activity.binding.tlToolbar.getViewTreeObserver();
+//        vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+//            @Override
+//            public void onGlobalLayout() {
+//                activity.binding.tlToolbar.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+//                final int height = activity.binding.tlToolbar.getHeight();
+//
+//
+//                scroolview.setScrollViewListener(new ObservableScrollView.ScrollViewListener() {
+//                    @Override
+//                    public void onScrollChanged(ObservableScrollView scrollView, int x, int y, int oldx, int oldy) {
+//                        if (y <= height) {
+//                            float scale = (float) y / height;
+//                            float alpha = (255 * scale);
+//                            //只是layout背景透明
+//                            activity.binding.tlToolbar.setBackgroundColor(Color.argb((int) alpha, 0x00, 0x00, 0x00));
+//                        }
+//                    }
+//                });
+//            }
+//        });
 
 
     }
@@ -196,6 +193,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
         RelativeLayout rl_lunckly = (RelativeLayout) view.findViewById(R.id.rl_lunckly);
         final ImageView iv1 = (ImageView) view.findViewById(R.id.iv_luncky_know1);
         final ImageView iv2 = (ImageView) view.findViewById(R.id.iv_luncky_know2);
+
         runnable = new Runnable() {
             @Override
             public void run() {
@@ -204,6 +202,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
                 tv_lunckly.postDelayed(this, 3000);
             }
         };
+
         tv_lunckly.postDelayed(runnable, 3000);
 
         rl_lunckly.setOnClickListener(this);
@@ -211,6 +210,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
         startShakeByViewAnim(iv1, 1.0f, 1.5f, 30.0f, 1000);
         startShakeByViewAnim(iv2, 1.0f, 1.5f, 30.0f, 1000);
     }
+
 
     @Override
     public void onPause() {
@@ -280,6 +280,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
             case R.id.iv_dismiss:
                 if (window != null)
                     window.dismiss();
+                    window = null;
                 break;
 
             case R.id.rl_lunckly:
@@ -377,7 +378,10 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
         LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(layout, null);
         ImageView iv_dismiss = (ImageView) view.findViewById(R.id.iv_dismiss);
+        ImageView iv_luncky_six = (ImageView) view.findViewById(R.id.iv_luncky_six);
 
+        //  星座的每日幸运数字， 颜色  方向  。  设置从网络获取的数据
+        //  iv_luncky_six.setBackground();
         iv_dismiss.setOnClickListener(this);
         // 下面是两种方法得到宽度和高度
         // getWindow().getDecorView().getWidth()
@@ -386,23 +390,11 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
         window.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         window.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         backgroundAlpha(0.8f);
-        // 设置popWindow弹出窗体可点击，这句话必须添加，并且是true
-        // window.setFocusable(true);
+        window.setFocusable(true);
 
-        //点击外面，PopWindowad不消失
         window.setBackgroundDrawable(new BitmapDrawable());
-
-        // 实例化一个ColorDrawable颜色为半透明
-        //ColorDrawable dw = new ColorDrawable(0xb0000000);
-        //window.setBackgroundDrawable(dw);
-
-
-        // 设置popWindow的显示和消失动画
         window.setAnimationStyle(R.style.mypopwindow_anim_style);
-        // 在底部显示
         window.showAtLocation(view, gravity, 0, 0);
-
-        //popWindow消失监听方法
         window.setOnDismissListener(new PopupWindow.OnDismissListener() {
 
             @Override

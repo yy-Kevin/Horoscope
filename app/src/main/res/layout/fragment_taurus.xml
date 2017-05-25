@@ -27,7 +27,7 @@
                 <com.github.androidprogresslayout.ProgressLayout xmlns:progressLayout="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/pl_progress"
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:background="@color/white"

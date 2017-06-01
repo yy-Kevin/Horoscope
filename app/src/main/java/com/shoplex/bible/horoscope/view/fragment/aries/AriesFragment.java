@@ -13,12 +13,14 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.view.animation.Transformation;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.shoplex.bible.horoscope.R;
 import com.shoplex.bible.horoscope.api.RxBus;
 import com.shoplex.bible.horoscope.base.BaseFragment;
 import com.shoplex.bible.horoscope.bean.DataBean;
 import com.shoplex.bible.horoscope.databinding.FragmentAriesBinding;
+import com.shoplex.bible.horoscope.utils.ToastUtil;
 import com.shoplex.bible.horoscope.view.activity.Aries.AriesActivity;
 
 /**
@@ -29,6 +31,7 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
 
     private FragmentAriesBinding binding;
     private RelativeLayout viewById;
+    private TextView tv_comment;
 
     public static AriesFragment getInstance() {
         AriesFragment fragment = new AriesFragment();
@@ -45,6 +48,7 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_aries, container, false);
+        tv_comment = (TextView) binding.ilIncludeData.findViewById(R.id.tv_comment);
         return binding.getRoot();
     }
 
@@ -57,6 +61,7 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
         }
         Log.i(TAG,"error eooror ro or ");
 //        viewById.setOnClickListener(mActivity);
+        tv_comment.setOnClickListener(this);
         initInClude(binding.ilInclude);
 //        initLucky(binding.ilIncludeLuncky);
         initSwipeLayout(this,binding.swipeRefresh,binding.scroolview);
@@ -96,6 +101,10 @@ public class AriesFragment extends BaseFragment<AriesPresenter> implements Aries
         super.onClick(v);
         Log.i(TAG,"yuyao aries + = " + v.getId());
         switch (v.getId()) {
+            case R.id.tv_comment:
+                ToastUtil.showToast(mActivity,"hahaha");
+
+                break;
             case R.id.rl_lunckly_data:
                 Log.i(TAG,"yuyao aries 111");
 

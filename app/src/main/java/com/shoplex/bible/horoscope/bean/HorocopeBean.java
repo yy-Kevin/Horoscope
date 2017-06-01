@@ -1,10 +1,12 @@
 package com.shoplex.bible.horoscope.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by qsk on 2017/4/25.
  */
 
-public class HorocopeBean {
+public class HorocopeBean<T> implements Serializable {
 
 
     /**

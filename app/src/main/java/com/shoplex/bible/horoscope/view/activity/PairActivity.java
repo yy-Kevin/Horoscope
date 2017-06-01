@@ -52,12 +52,9 @@ public class PairActivity extends AppCompatActivity implements View.OnClickListe
         mHandler.postDelayed(mRunnable, 350);
 
     }
-    private Runnable mRunnable = new Runnable() {
-        public void run() {
-            // 弹出PopupWindow的具体代码
-            showPopwindowad(R.layout.pop_pair, Gravity.BOTTOM);
-
-        }
+    private Runnable mRunnable = () -> {
+        // 弹出PopupWindow的具体代码
+        showPopwindowad(R.layout.pop_pair, Gravity.BOTTOM);
     };
 
     @Override
@@ -78,6 +75,8 @@ public class PairActivity extends AppCompatActivity implements View.OnClickListe
     public View showPopwindowad(int layout, int gravity) {
         // 利用layoutInflater获得View
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+
         View view = inflater.inflate(layout, null);
         ImageView iv_dismiss = (ImageView) view.findViewById(R.id.iv_dismiss);
 
@@ -106,13 +105,7 @@ public class PairActivity extends AppCompatActivity implements View.OnClickListe
         window.showAtLocation(binding.ivHeart2, gravity, 0, 200);
 
         //popWindow消失监听方法
-        window.setOnDismissListener(new PopupWindow.OnDismissListener() {
-
-            @Override
-            public void onDismiss() {
-                backgroundAlpha(1.0f);
-            }
-        });
+        window.setOnDismissListener(() -> backgroundAlpha(1.0f));
         return view;
     }
 

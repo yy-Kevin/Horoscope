@@ -1,19 +1,19 @@
 [
     {
-        "merged": "E:\\wave\\Horoscopes\\library\\build\\intermediates\\res\\merged\\release\\layout\\notification_media_cancel_action.xml",
-        "source": "C:\\Users\\qsk\\.android\\build-cache\\2f2d8fa67f1797fb8fa1c9318d0ca29a4be0943b\\output\\res\\layout\\notification_media_cancel_action.xml"
-    },
-    {
         "merged": "E:\\wave\\Horoscopes\\library\\build\\intermediates\\res\\merged\\release\\layout\\abc_action_bar_title_item.xml",
         "source": "C:\\Users\\qsk\\.android\\build-cache\\2f2d8fa67f1797fb8fa1c9318d0ca29a4be0943b\\output\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
-        "merged": "E:\\wave\\Horoscopes\\library\\build\\intermediates\\res\\merged\\release\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "C:\\Users\\qsk\\.android\\build-cache\\2f2d8fa67f1797fb8fa1c9318d0ca29a4be0943b\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+        "merged": "E:\\wave\\Horoscopes\\library\\build\\intermediates\\res\\merged\\release\\layout\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\qsk\\.android\\build-cache\\2f2d8fa67f1797fb8fa1c9318d0ca29a4be0943b\\output\\res\\layout\\notification_media_cancel_action.xml"
     },
     {
         "merged": "E:\\wave\\Horoscopes\\library\\build\\intermediates\\res\\merged\\release\\layout\\abc_list_menu_item_checkbox.xml",
         "source": "C:\\Users\\qsk\\.android\\build-cache\\2f2d8fa67f1797fb8fa1c9318d0ca29a4be0943b\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "E:\\wave\\Horoscopes\\library\\build\\intermediates\\res\\merged\\release\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\qsk\\.android\\build-cache\\2f2d8fa67f1797fb8fa1c9318d0ca29a4be0943b\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
         "merged": "E:\\wave\\Horoscopes\\library\\build\\intermediates\\res\\merged\\release\\layout\\abc_list_menu_item_radio.xml",

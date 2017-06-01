@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import rx.Subscription;
-import rx.functions.Action1;
 
 /**
  * Created by qsk on 2017/5/5.
@@ -48,18 +47,12 @@ public class AriesActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_aries);
 
         rxSbscription = RxBus.getInstance().toObserverable(DataBean.class)
-                .subscribe(new Action1<DataBean>() {
-                    @Override
-                    public void call(DataBean dataBean) {
-                        binding.lvDemo.setBackgroundResource(dataBean.getBackground());
-                    }
-                });
+                .subscribe(dataBean -> binding.lvDemo.setBackgroundResource(dataBean.getBackground()));
 
         setSupportActionBar(binding.toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         initControls();
-
     }
 
     @Override
@@ -121,10 +114,7 @@ public class AriesActivity extends AppCompatActivity {
 
         //viewpager加载adapter
         binding.lvDemo.setAdapter(fAdapter);
-        //tab_FindFragment_title.setViewPager(vp_FindFragment_pager);
-        //TabLayout加载viewpager
         binding.tabLayout.setupWithViewPager(binding.lvDemo);
-        //tab_FindFragment_title.set
     }
 
     public static class Find_tab_Adapter extends FragmentPagerAdapter {
